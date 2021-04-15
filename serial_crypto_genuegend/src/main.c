@@ -1,6 +1,5 @@
  /*
  * Titel: Krypto-Prozessor
- * Beschreibung:
  * Datum der letzten Bearbeitung: 12.04.2021
  * Autor: Patrick Wintner
  */
