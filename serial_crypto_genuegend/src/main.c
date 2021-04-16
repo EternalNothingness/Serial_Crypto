@@ -1,6 +1,8 @@
- /*
+  /*
  * Titel: Krypto-Prozessor
- * Datum der letzten Bearbeitung: 12.04.2021
+ * Beschreibung: Entschluesselt die mithilfe der UART0-Schnittstelle empfangenen Daten und sendet diese zurueck
+ * Link zum GitHub-Repository: https://github.com/EternalNothingness/Serial_Crypto
+ * Datum der letzten Bearbeitung: 13.04.2021
  * Autor: Patrick Wintner
  */
 
