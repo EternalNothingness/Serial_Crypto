@@ -1,6 +1,8 @@
  /*
  * Titel: Krypto-Prozessor
- * Datum der letzten Bearbeitung: 12.04.2021
+ * Beschreibung: Entschluesselt die mithilfe der UART0-Schnittstelle empfangenen Daten und sendet diese zurueck
+ * Link zum GitHub-Repository: https://github.com/EternalNothingness/Serial_Crypto
+ * Datum der letzten Bearbeitung: 13.04.2021
  * Autor: Patrick Wintner
  */
 
@@ -78,7 +80,7 @@ void main(void){
 
 void uart_in(void *ptr1, void *ptr2, void *ptr3){
 	// ## setup area ##
-	// Uebergabeparameter werden nicht benötigt
+	// Uebergabeparameter werden nicht benoetigt
 	ARG_UNUSED(ptr1);
 	ARG_UNUSED(ptr2);
 	ARG_UNUSED(ptr3);
@@ -139,7 +141,6 @@ void uart_out(void *ptr1, void *ptr2, void *ptr3){
 
 void processing(void *ptr1, void *ptr2, void *ptr3){
 	// ## setup area ##
-	// Uebergabeparameter werden nicht benoetigt
 	ARG_UNUSED(ptr1);
 	ARG_UNUSED(ptr2);
 	ARG_UNUSED(ptr3);
