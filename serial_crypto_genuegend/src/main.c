@@ -80,7 +80,7 @@ void main(void){
 
 void uart_in(void *ptr1, void *ptr2, void *ptr3){
 	// ## setup area ##
-	// Uebergabeparameter werden nicht benötigt
+	// Uebergabeparameter werden nicht benoetigt
 	ARG_UNUSED(ptr1);
 	ARG_UNUSED(ptr2);
 	ARG_UNUSED(ptr3);
@@ -141,7 +141,6 @@ void uart_out(void *ptr1, void *ptr2, void *ptr3){
 
 void processing(void *ptr1, void *ptr2, void *ptr3){
 	// ## setup area ##
-	// Uebergabeparameter werden nicht benoetigt
 	ARG_UNUSED(ptr1);
 	ARG_UNUSED(ptr2);
 	ARG_UNUSED(ptr3);
