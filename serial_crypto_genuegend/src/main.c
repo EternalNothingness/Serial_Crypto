@@ -27,8 +27,6 @@ struct uart_config uartconf;
 enum {init, avail};
 int state = init;
 
-void state_machine(void);
-
 void uart_in(void *, void *, void *);
 void uart_out(void*, void*, void*);
 void processing(void*, void*, void*);
@@ -72,50 +70,49 @@ void main(void){
 
 	// ## main loop ##
 	for(;;){
-		printk("\nmain is waiting for death\n");
-		k_msleep(10*1000);
+		printk("\nmain is waiting for death\n"); // "main is still alive" ist mir irgendwie zu langweilig...
+		k_msleep(10*1000); // 10s schlafen
 	}
 }
 
 // ## functions ##
 
-void state_machine(void){
-	unsigned char input;
-
-	switch(state){
-		case init:
-			if(!uart_poll_in(uart_dev, &input)){
-				printk("received data: %c\n", input);
-				switch(input){
-					case '.':
-						k_msgq_put(&uart_msgq, ".\n", K_FOREVER);
-						break;
-					case 'P':
-						printk("Changing state to avail\n");
-						state = avail;
-						break;
-					default: break;
-				}
-			}
-		case avail: break;
-		default: break;
-	}
-	return;
-}
-
 void uart_in(void *ptr1, void *ptr2, void *ptr3){
 	// ## setup area ##
+	// Uebergabeparameter werden nicht benötigt
 	ARG_UNUSED(ptr1);
 	ARG_UNUSED(ptr2);
 	ARG_UNUSED(ptr3);
 
+	unsigned char input;
+
 	// ## main loop ##
 	for(;;){
-		state_machine();
-		k_yield();
+		// state machine
+		switch(state){
+			case init:
+				// Warten auf Daten
+				if(!uart_poll_in(uart_dev, &input)){
+					printk("received data: %c\n", input);
+					switch(input){
+						case '.':
+							// Punkt zuruecksenden
+							k_msgq_put(&uart_msgq, ".\n", K_FOREVER);
+							break;
+						case 'P':
+							printk("Changing state to avail\n");
+							state = avail;
+							break;
+						default: break;
+					}
+				}
+			case avail: break;
+			default: break;
+		}
+		k_msleep(1); // Prozessor abgeben
 	}
 
-	return;
+	return; // sollte nie geschehen
 }
 
 void uart_out(void *ptr1, void *ptr2, void *ptr3){
@@ -128,38 +125,41 @@ void uart_out(void *ptr1, void *ptr2, void *ptr3){
 
 	// ## main loop ##
 	for(;;){
-		memset(output, 0, strlen(output));
-		if(k_msgq_get(&uart_msgq, output, K_NO_WAIT)==0){
+		memset(output, 0, strlen(output)); // Inhalt resetten
+		if(k_msgq_get(&uart_msgq, output, K_NO_WAIT)==0){ // Abfrage der uart message queue
 			printk("Going to send data: <%s>\n", output);
 			for(int i=0; i<strlen(output); i++){
 				uart_poll_out(uart_dev, *(output+i));
 				printk("Sent data: <%x>\n", *(output+i));
 			}
 		}
-		k_yield();
+		k_msleep(1); // Abgeben des Prozessors
 	}
 	return;
 }
 
 void processing(void *ptr1, void *ptr2, void *ptr3){
 	// ## setup area ##
+	// Uebergabeparameter werden nicht benoetigt
 	ARG_UNUSED(ptr1);
 	ARG_UNUSED(ptr2);
 	ARG_UNUSED(ptr3);
 
 	// ## main loop ##
 	for(;;){
+		// state machine
 		switch(state){
 			case init:
 				break;
 			case avail:
+				// Senden von "PROCESSING AVAILABLE" an den Benutzer
 				k_msgq_put(&uart_msgq, "PROCESSING AVAILABLE\n", K_FOREVER);
 				printk("Changing state to init\n");
-				state = init;
+				state = init; // Nach erfolgreichen Senden Rueckkehr in init state
 				break;
 			default: break;
 		}
-		k_yield();
+		k_msleep(1); // Abgeben des Prozessors
 	}
 	return;
 }

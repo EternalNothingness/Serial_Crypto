@@ -39,7 +39,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/misc/cmake_install.cmake")
   include("/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/pcie/cmake_install.cmake")
   include("/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/disk/cmake_install.cmake")
-  include("/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/crypto/cmake_install.cmake")
   include("/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/serial/cmake_install.cmake")
   include("/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/timer/cmake_install.cmake")
 

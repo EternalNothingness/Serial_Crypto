@@ -102,9 +102,6 @@
 /home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/pcie/CMakeFiles/edit_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/disk/CMakeFiles/rebuild_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/disk/CMakeFiles/edit_cache.dir
-/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/crypto/CMakeFiles/rebuild_cache.dir
-/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/crypto/CMakeFiles/edit_cache.dir
-/home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/crypto/CMakeFiles/drivers__crypto.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/serial/CMakeFiles/rebuild_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/serial/CMakeFiles/edit_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/zephyr/drivers/serial/CMakeFiles/drivers__serial.dir
@@ -186,8 +183,6 @@
 /home/eternaldarkness/zephyrproject/serial_crypto/build/modules/tinycbor/CMakeFiles/edit_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/modules/tinycrypt/CMakeFiles/rebuild_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/modules/tinycrypt/CMakeFiles/edit_cache.dir
-/home/eternaldarkness/zephyrproject/serial_crypto/build/modules/tinycrypt/lib/CMakeFiles/rebuild_cache.dir
-/home/eternaldarkness/zephyrproject/serial_crypto/build/modules/tinycrypt/lib/CMakeFiles/edit_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/modules/littlefs/CMakeFiles/rebuild_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/modules/littlefs/CMakeFiles/edit_cache.dir
 /home/eternaldarkness/zephyrproject/serial_crypto/build/modules/mipi-sys-t/CMakeFiles/rebuild_cache.dir

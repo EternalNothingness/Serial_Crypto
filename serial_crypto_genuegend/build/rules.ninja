@@ -165,25 +165,6 @@ rule C_STATIC_LIBRARY_LINKER__boards__posix__native_posix
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__drivers__crypto
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache /usr/bin/gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__drivers__crypto
-  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling C files.
-
 rule C_COMPILER__drivers__serial
   depfile = $DEP_FILE
   deps = gcc
