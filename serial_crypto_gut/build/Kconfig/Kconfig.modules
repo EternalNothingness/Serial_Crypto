@@ -1,0 +1,24 @@
+menu "hal_nordic (/home/eternaldarkness/zephyrproject/modules/hal/nordic)"
+osource "$(ZEPHYR_HAL_NORDIC_KCONFIG)"
+config ZEPHYR_HAL_NORDIC_MODULE
+	bool
+	default y
+endmenu
+menu "sof (/home/eternaldarkness/zephyrproject/modules/audio/sof)"
+osource "/home/eternaldarkness/zephyrproject/modules/audio/sof/zephyr/Kconfig"
+config ZEPHYR_SOF_MODULE
+	bool
+	default y
+endmenu
+menu "trusted-firmware-m (/home/eternaldarkness/zephyrproject/modules/tee/tfm)"
+osource "$(ZEPHYR_TRUSTED_FIRMWARE_M_KCONFIG)"
+config ZEPHYR_TRUSTED_FIRMWARE_M_MODULE
+	bool
+	default y
+endmenu
+menu "nanopb (/home/eternaldarkness/zephyrproject/modules/lib/nanopb)"
+osource "$(ZEPHYR_NANOPB_KCONFIG)"
+config ZEPHYR_NANOPB_MODULE
+	bool
+	default y
+endmenu
